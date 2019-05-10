@@ -73,7 +73,7 @@ const postInvoiceToFakturoid = (data, invoice_number) => {
         console.log("Faktura uspesne nahrana");
         console.log();
         console.log("LINK NA FAKTURU", body.html_url);
-        console.log("PUBLIC LINK NA FAKTURU", body.url);
+        console.log("PUBLIC LINK NA FAKTURU", body.public_html_url);
         console.log("PDF KE STAZENI", body.html_url+".pdf=download=true");
       }
       else{
@@ -84,7 +84,7 @@ const postInvoiceToFakturoid = (data, invoice_number) => {
     });
   });
 
-  req.write(JSON.stringify({ custom_id: '23232',
+  req.write(JSON.stringify({ custom_id: invoice_number,
     subject_id: process.env.FAKTUROID_SUBJECT_ID,
     number: invoice_number,
     currency: 'CZK',
