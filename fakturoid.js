@@ -91,8 +91,6 @@ const postInvoiceToFakturoid = (data, invoice_number) => {
     payment_method: process.env.FAKTUROID_PAYMENT_METHOD.toString(),
     due: process.env.FAKTUROID_PAYMENT_DUE,
     issued_on: process.env.FAKTUROID_ISSUED_ON? process.env.FAKTUROID_ISSUED_ON: today,
-    //taxable_fulfillment_due: '2012-03-30',
-    bank_account_id: 7,
     lines: data 
   }));
   req.end();
